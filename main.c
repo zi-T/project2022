@@ -1,59 +1,86 @@
-#include <stdio.h>
-#include <stdlib.h>
-typedef struct Customer{
-    int id;
-    int age;
-    int payments[5];
-}CUSTOMER;
-
-typedef struct Employee{
-    char name[8];
-    int salary;
-}EMPLOYEE;
-
-
-int sumOfPowers(int n);                                 //this function should find the following sum: 1^2 + 2^2 + 3^2 + 4^2 + ... + n^2
-int compareAges(CUSTOMER* a, CUSTOMER* b);              //this function should test if  a->age == b->age. it returns 1 if they are equal; 0 otherwise.
-int findPaymentsSum(CUSTOMER* c, int num_of_pamyments); //this function should find the sum of all payments made by a given customer
-
-// extra credit
-//int findSalariesSum(EMPLOYEE e[], int size);            //this function should find the sum of salaries in a given array of employees
+#include "employee.h"
 
 int main(){
+    //-----------------------------------------------------
+    //testCase -1
+    /*
+    EMPLOYEE e;
+    e.name="james";
+    e.id=123456;
+    e.next=NULL;
+    e.payments=NULL;
+    printEmployee(e);
+    */
+    //-----------------------------------------------------
+    //testCase -2
+    /*
+    PAYMENT p1;
+    p1.date="01/01/2010";
+    p1.amount=150;
+    p1.next=NULL;
+    PAYMENT p2;
+    p2.date="01/05/2010";
+    p2.amount=200;
+    p2.next=&p1;
+    EMPLOYEE e;
+    e.name="sarah";
+    e.id=123456;
+    e.payments=&p2;
+    e.next=NULL;
+    printEmployee(e);
+    */
+    //-----------------------------------------------------
+    //testCase -3
+    /*
+    addEmployee(123,"alma");
+    addEmployee(456,"mike");
+    printEmployees();
+    */
+    //-----------------------------------------------------
+    //testCase -4
+    /*
+    addEmployee(123,"alma");
+    addPayment(123,"01/02/2020",3000);
+    addPayment(123,"10/07/2021",5000);
+    printEmployees();
+    */
+    //-----------------------------------------------------
+    //testCase -5
     
-    // TestCase-1
-    printf("The sum is: %d\n",sumOfPowers(3));
-
-    // TestCase-2
+    addEmployee(123,"alma");
+    addPayment(123,"01/02/2020",3000);
+    addPayment(123,"10/07/2021",5000);
+    addEmployee(456,"mike");
+    addPayment(456,"06/03/2020",700);
+    addPayment(456,"07/02/2020",200);
+    addPayment(456,"06/04/2021",600);
+    printEmployees();
+    
+    //-----------------------------------------------------
+    //testCase -6
     /*
-    CUSTOMER* a1=malloc(sizeof(CUSTOMER));
-    CUSTOMER* a2=malloc(sizeof(CUSTOMER));
-    CUSTOMER* a3=malloc(sizeof(CUSTOMER));
-    a1->age=25;
-    a2->age=30;
-    a3->age=25;
-    printf("The result of the comparison is: %d\n",compareAges(a1,a2));
-    printf("The result of the comparison is: %d\n",compareAges(a1,a3));
+    addEmployee(123,"alma");
+    addPayment(123,"01/02/2020",3000);
+    addPayment(123,"10/07/2021",5000);
+    addEmployee(456,"mike");
+    addPayment(456,"06/03/2020",700);
+    addPayment(456,"07/02/2020",200);
+    addPayment(456,"06/04/2021",600);
+    deleteEmployee(123,"alma");
+    printEmployees();
     */
-
-    // TestCase-3
+    //-----------------------------------------------------
+    //testCase -7
     /*
-    CUSTOMER* cstmr=malloc(sizeof(CUSTOMER));
-    cstmr->id=101;
-    cstmr->age=30;
-    cstmr->payments[0]=1500;
-    cstmr->payments[1]=1500;
-    cstmr->payments[2]=2000;
-    cstmr->payments[3]=500;
-    cstmr->payments[4]=300;
-    printf("The sum of all payments is: %d\n",findPaymentsSum(cstmr, 5));
+    addEmployee(123,"alma");
+    addPayment(123,"01/02/2020",3000);
+    addPayment(123,"10/07/2021",5000);
+    addEmployee(456,"mike");
+    addPayment(456,"06/03/2020",700);
+    addPayment(456,"07/02/2020",200);
+    addPayment(456,"06/04/2021",600);
+    deleteEmployee(456,"mike");
+    deleteEmployee(123,"alma");
+    printEmployees();
     */
-
-    // TestCase-4
-    /*
-    EMPLOYEE e1={"jame",2000}, e2={"sara",3000}, e3={"alic",2500}, e4={"mark",3200};
-    EMPLOYEE employees[4]={e1,e2,e3,e4};
-    printf("The sum of salaries is: %d\n",findSalariesSum(employees,4));
-    */
-
 }
